@@ -1,1 +1,52 @@
 @use '../placeholders/roots.scss';
+@use '../placeholders/mixins.scss';
+
+.hero {
+    background-image: url('outside-1.jpg');
+    width: 100vw;
+    height: 27rem;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: roots.$typeography-secondary;
+    text-align: center;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000080;
+    }
+
+    &__heading {
+        font-size: 2.5em;
+        font-weight: 500;
+        text-transform: uppercase;
+        z-index: 1;
+    }
+
+    &__text {
+        max-width: 23rem;
+        z-index: 1;
+    }
+
+    &__sponser {
+        margin-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        z-index: 1;
+
+        &-btn {
+            @include mixins.button();
+        }
+    }
+}

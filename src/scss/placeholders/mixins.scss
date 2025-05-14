@@ -1,0 +1,10 @@
+@use './roots.scss';
+
+@mixin button() {
+    background-color: roots.$primary-colour;
+    color: roots.$typeography-secondary;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+}
