@@ -8,7 +8,7 @@ function Header({ currentPage }) {
             <Link to="/"><img src="/logo-wide.svg" alt="logo" className="header__logo" /></Link>
             <nav>
                 <ul className="header__menu">
-                    <li><Link to="/index" className={`header__menu-link ${currentPage === 'index' ? 'active' : ''}`}>Forside</Link></li>
+                    <li><Link to="/" className={`header__menu-link ${currentPage === 'index' ? 'active' : ''}`}>Forside</Link></li>
                     <li><Link to="/about-us" className={`header__menu-link ${currentPage === 'about' ? 'active' : ''}`}>Om os</Link></li>
                     <li><Link to="/sponser" className={`header__menu-link ${currentPage === 'sponser' ? 'active' : ''}`}>Tilmeld som sponser</Link></li>
                     <li><Link to="/thanks" className={`header__menu-link ${currentPage === 'thanks' ? 'active' : ''}`}>Børnlejren takker</Link></li>
