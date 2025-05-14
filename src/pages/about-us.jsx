@@ -6,10 +6,10 @@ function AboutPage() {
     return (
         <>
             <Header currentPage='about' />
-            <section className="hero">
-                <h1 className="hero__heading">Om os</h1>
-            </section>
             <main>
+                <section className="hero">
+                    <h1 className="hero__heading">Om os</h1>
+                </section>
                 <div className="about-column">
                     <div className="about-column__text about-column__text--left">
                         <p>Børnelejren på Langeland er en velgørende, non-profit forening, som afholder finansierede lejre for dårligt stillede børn og unge fra hele landet. Børnelejrene bliver afholdt på foreningens bondegård, Søgård Hovedgård, som ligger i naturskønne omgivelser på sydspidsen af Langeland. Samtlige omkostninger til alle børns ophold og transport til/fra lejren bliver finansieret af foreningen, og det er et krav fra foreningens side, at der ikke opkræves brugerbetaling af børnenes forældre for opholdet på Søgård.</p>
