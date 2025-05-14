@@ -1,0 +1,46 @@
+@use '../placeholders/roots.scss';
+
+.header {
+    background-color: roots.$primary-colour;
+    color: roots.$typeography-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+
+    &__slogan {
+        font-size: 1.2em;
+        text-transform: uppercase;
+    }
+
+    &__logo {
+        width: 6.68rem;
+        height: auto;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 1rem;
+        list-style: none;
+
+        &-link {
+            text-decoration: none;
+            text-transform: capitalize;
+            position: relative;
+
+            &.active::before {
+                content: '';
+                display: block;
+                width: 110%;
+                height: 2px;
+                position: absolute;
+                top: -.2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: roots.$secondary-colour-white;
+            }
+        }
+    }
+}
