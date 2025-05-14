@@ -4,8 +4,10 @@
     background-color: roots.$primary-colour;
     color: roots.$typeography-secondary;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     padding: 1rem;
 
     &__slogan {
@@ -20,8 +22,8 @@
 
     &__menu {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: space-evenly;
         gap: 1rem;
         list-style: none;
 
@@ -29,7 +31,8 @@
             text-decoration: none;
             text-transform: capitalize;
             position: relative;
-
+            transition: 200ms ease;
+            
             &.active::before {
                 content: '';
                 display: block;
