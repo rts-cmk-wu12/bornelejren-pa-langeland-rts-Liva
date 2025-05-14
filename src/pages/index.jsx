@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import Header from '../components/header';
+import Footer from '../components/footer';
 import '../scss/components/index.scss';
 
 function HomePage() {
@@ -26,6 +27,7 @@ function HomePage() {
                     <p className="text-section__text text-section__text--bold">Hjælp os med at hjælpe dem!</p>
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

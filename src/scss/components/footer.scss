@@ -1,0 +1,48 @@
+@use '../placeholders/roots.scss';
+
+.footer {
+    background-color: roots.$primary-colour;
+    color: roots.$typeography-secondary;
+    padding: 2rem;
+
+    &__heading {
+        font-size: 1.5em;
+        font-weight: 500;
+        margin-block: 1rem .5rem;
+    }
+
+    &-info {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+
+        &__item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+
+        &__heading {
+            font-size: 1.25em;
+            font-weight: 500;
+        }
+
+        &__address {
+            font-style: normal;
+
+            small, a {
+                display: block;
+                font-size: 1em;
+                text-decoration: none;
+            }
+        }
+
+        &__link {
+            color: roots.$secondary-colour-white;
+            width: 2.6rem;
+            height: 2.6rem;
+            align-self: flex-end;
+        }
+    }
+}
