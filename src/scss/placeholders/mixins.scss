@@ -8,3 +8,9 @@
     text-transform: capitalize;
     cursor: pointer;
 }
+
+@mixin media($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
