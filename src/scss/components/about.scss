@@ -1,0 +1,29 @@
+@use '../placeholders/roots.scss';
+@use '../placeholders/mixins.scss';
+
+.about-column {
+    display: flex;
+
+    @include mixins.media(635px) {
+        flex-direction: column;
+    }
+
+    &__text {
+        width: 50%;
+        padding: 3rem 2rem;
+        padding-bottom: 5rem;
+
+        @include mixins.media(635px) {
+            width: 100%;
+            padding-bottom: 3rem;
+        }
+
+        p + p {
+            margin-top: 2lh;
+        }
+
+        &--left {
+            background-color: roots.$secondary-colour-grey;
+        }
+    }
+}
