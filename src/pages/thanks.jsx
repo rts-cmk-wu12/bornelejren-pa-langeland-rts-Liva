@@ -9,7 +9,7 @@ function ThanksPage() {
 
     useEffect(() => {
         async function fetchSponsers() {
-            const response = await fetch(`https://bornelejren-api.onrender.com/api/sponsers`);
+            const response = await fetch(`${import.meta.env.VITE_URL}/api/sponsers`);
             const data = await response.json();
 
             setSponsers(data);
