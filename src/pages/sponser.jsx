@@ -1,6 +1,7 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import '../scss/components/sponser.scss';
+import '../scss/components/intro.scss';
 
 function SponserPage() {
     return (
