@@ -13,7 +13,7 @@ function SponserPage() {
 
         const form = e.target;
 
-        if (form.company.value.length < 1 || form.address.value.length < 1 || form.amount.value < 2000) {
+        if (form.company.value.length < 1 || form.address.value.length < 1 || form.amount.value < 1) {
             setError(true);
         }
         if (!form.mail.value.toLowerCase().match(/^\S+@\S+\.\S+$/)) {
