@@ -1,8 +1,23 @@
+import { useEffect, useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import '../scss/components/thanks.scss';
+import '../scss/components/intro.scss';
 
 function ThanksPage() {
+    const [sponsers, setSponsers] = useState([]);
+
+    useEffect(() => {
+        async function fetchSponsers() {
+            const response = await fetch(`${import.meta.env.VITE_URL}/api/sponsers`);
+            const data = await response.json();
+
+            setSponsers(data);
+        }
+
+        fetchSponsers();
+    }, []);
+
     return (
         <>
             <Header currentPage="thanks" />
@@ -15,30 +30,19 @@ function ThanksPage() {
                 </div>
                 <section className="sponsers">
                     <h2 className="sponsers__heading">En særlig tak til:</h2>
-                    <table className="sponsers__table">
-                        <tbody>
-                            <tr>
-                                <td>2025</td>
-                                <td>Aage og Johanne Louis-Hansens Fond</td>
-                                <td>20.000kr</td>
-                            </tr>
-                            <tr>
-                                <td>2025</td>
-                                <td>Aage og Johanne Louis-Hansens Fond</td>
-                                <td>20.000kr</td>
-                            </tr>
-                            <tr>
-                                <td>2025</td>
-                                <td>Aage og Johanne Louis-Hansens Fond</td>
-                                <td>20.000kr</td>
-                            </tr>
-                            <tr>
-                                <td>2025</td>
-                                <td>Aage og Johanne Louis-Hansens Fond</td>
-                                <td>20.000kr</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {sponsers.length > 0 ? (
+                        <table className="sponsers__table">
+                            <tbody>
+                                {sponsers.map((sponser, index) => (
+                                    <tr key={index}>
+                                        <td>{sponser.year}</td>
+                                        <td>{sponser.company}</td>
+                                        <td>{sponser.amount}kr</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : <p>Ingen sponsers fundet...</p>}
                 </section>
             </main>
             <Footer />
