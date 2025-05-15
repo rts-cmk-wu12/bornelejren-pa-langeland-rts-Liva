@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:express": "node --env-file=.env --env-file=.env.production server.js",
+    "dev:express": "node --env-file=.env --env-file=.env.production --env-file=.env.local server.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
