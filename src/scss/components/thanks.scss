@@ -1,0 +1,25 @@
+@use '../placeholders/roots.scss';
+@use '../placeholders/mixins.scss';
+
+.sponsers {
+    padding-inline: 2rem;
+    margin-block: 2rem 3rem;
+
+    &__heading {
+        font-size: 1.8em;
+        font-weight: 500;
+    }
+
+    &__table {
+        margin-top: 1rem;
+        margin-left: 1.5rem;
+        max-width: 50rem;
+        width: 100%;
+        text-align: center;
+        border-spacing: 1rem;
+
+        @include mixins.media(525px) {
+            margin-left: 0;
+        }
+    }
+}
