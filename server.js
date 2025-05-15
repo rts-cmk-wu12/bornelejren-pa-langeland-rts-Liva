@@ -11,6 +11,7 @@ const database = client.db("bornelejren");
 app.use((req, res, next) => {
   const allowedOrigins = [
     "http://localhost:3001",
+    "https://bornelejren-pa-langeland.onrender.com"
   ];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
