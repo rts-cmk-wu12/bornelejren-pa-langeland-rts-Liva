@@ -70,7 +70,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
-        margin-block: 1rem 4rem;
+        margin-block: 1rem 2rem;
 
         @include mixins.media(400px) {
             margin-block: 1rem;
@@ -102,6 +102,39 @@
             padding: .5rem 1.3rem;
             margin-left: 50%;
             transform: translateX(-50%);
+            margin-top: 2rem;
         }
     }
+
+    &__modal {
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: roots.$secondary-colour-white;
+        border: 2px solid roots.$primary-colour;
+        padding: 1rem;
+        color: roots.$typeography-primary;
+        text-align: center;
+
+        &-btn {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            color: roots.$typeography-primary;
+            font-size: 1em;
+            margin-left: 95%;
+        }
+
+        &-heading {
+            font-weight: 500;
+            font-size: 1.8em;
+            margin-block: .3rem;
+        }
+    }
+}
+
+.error {
+    font-size: .8em;
+    text-align: center;
 }

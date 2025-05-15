@@ -1,9 +1,43 @@
+import { useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import '../scss/components/sponser.scss';
 import '../scss/components/intro.scss';
 
 function SponserPage() {
+    const [error, setError] = useState(false);
+    const [modal, setModal] = useState(false);
+
+    async function addSubmission(e) {
+        e.preventDefault();
+
+        const form = e.target;
+
+        if (form.company.value.length < 1 || form.address.value.length < 1 || form.amount.value < 2000) {
+            setError(true);
+        }
+        if (!form.mail.value.toLowerCase().match(/^\S+@\S+\.\S+$/)) {
+            setError(true);
+        }
+        if (isNaN(form.phoneNumber.value) || form.phoneNumber.value < 1) {
+            setError(true);
+        }
+
+        else {
+            const formData = new FormData(form);
+            const formDataObject = Object.fromEntries(formData.entries());
+
+            await fetch(`${import.meta.env.VITE_URL}/api/submissions/add`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formDataObject),
+            });
+
+            setError(false);
+            setModal(true);
+        }
+    }
+
     return (
         <>
             <Header currentPage='sponser' />
@@ -29,20 +63,20 @@ function SponserPage() {
                     </ul>
                 </div>
                 <div className="form-container">
-                    <form className="form">
+                    <form className="form" onSubmit={addSubmission}>
                         <img src="logo-wide.svg" alt="logo" className="form__logo" />
                         <div className="form-field">
                             <div>
-                                <label htmlFor="type">Støttetype:</label>
-                                <select name="type" className="form-field__input">
+                                <label htmlFor="supportType">Støttetype:</label>
+                                <select name="supportType" className="form-field__input">
                                     <option value="børnesponsorat">Børnesponsorat</option>
                                     <option value="lejrsponsorat">Lejrsponsorat</option>
                                     <option value="foreningen">Støtte til foreningen</option>
                                 </select>
                             </div>
                             <div>
-                                <label htmlFor="company-name">Firmanavn:</label>
-                                <input type="text" name="company-name" className="form-field__input" placeholder="Dit firmanavn..." required />
+                                <label htmlFor="company">Firmanavn:</label>
+                                <input type="text" name="company" className="form-field__input" placeholder="Dit firmanavn..." required />
                             </div>
                             <div>
                                 <label htmlFor="mail">Mail:</label>
@@ -53,16 +87,22 @@ function SponserPage() {
                                 <input type="text" name="address" className="form-field__input" placeholder="Din firma adresse..." required />
                             </div>
                             <div>
-                                <label htmlFor="phone">Telefon:</label>
-                                <input type="number" name="phone" className="form-field__input" placeholder="Dit firma tlf nr..." required />
+                                <label htmlFor="phoneNumber">Telefon:</label>
+                                <input type="number" name="phoneNumber" className="form-field__input" placeholder="Dit firma tlf nr..." required />
                             </div>
                             <div>
-                                <label htmlFor="budget">Beløb:</label>
-                                <input type="number" name="budget" className="form-field__input" placeholder="Dit firma beløb..." required />
+                                <label htmlFor="amount">Beløb:</label>
+                                <input type="number" name="amount" className="form-field__input" placeholder="Dit firma beløb..." required />
                             </div>
                         </div>
+                        {error && <p className="error">Udfyld venligst alle felter korrekt.</p>}
                         <button type="submit" className="form-field__btn">Send</button>
                     </form>
+                    <dialog className="form__modal" open={modal}>
+                        <button className="form__modal-btn" onClick={() => setModal(false)}>X</button>
+                        <h2 className="form__modal-heading">Tak for din anmodning!</h2>
+                        <p>Vi kontakter dig hurtigst muligt.</p>
+                    </dialog>
                 </div>
             </main>
             <Footer />
