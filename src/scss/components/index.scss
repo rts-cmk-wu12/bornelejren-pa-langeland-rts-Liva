@@ -2,7 +2,7 @@
 @use '../placeholders/mixins.scss';
 
 .hero {
-    background-image: url('outside-1.jpg');
+    background-image: url('/outside-1.jpg');
     width: 100vw;
     height: 27rem;
     background-size: cover;
