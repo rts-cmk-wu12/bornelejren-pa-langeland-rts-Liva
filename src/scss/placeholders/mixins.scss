@@ -1,0 +1,17 @@
+@use './roots.scss';
+
+@mixin button() {
+    background-color: roots.$primary-colour;
+    border: none;
+    color: roots.$typeography-secondary;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+@mixin media($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
