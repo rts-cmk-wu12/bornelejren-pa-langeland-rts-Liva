@@ -2,6 +2,7 @@
 
 @mixin button() {
     background-color: roots.$primary-colour;
+    border: none;
     color: roots.$typeography-secondary;
     padding: 0.8rem 1rem;
     text-decoration: none;

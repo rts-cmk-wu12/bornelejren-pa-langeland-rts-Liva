@@ -41,23 +41,23 @@ function SponserPage() {
                             </div>
                             <div>
                                 <label htmlFor="company-name">Firmanavn:</label>
-                                <input type="text" name="company-name" className="form-field__input" placeholder="Dit firmanavn..." />
+                                <input type="text" name="company-name" className="form-field__input" placeholder="Dit firmanavn..." required />
                             </div>
                             <div>
                                 <label htmlFor="mail">Mail:</label>
-                                <input type="mail" name="mail" className="form-field__input" placeholder="Din firma mail..." />
+                                <input type="mail" name="mail" className="form-field__input" placeholder="Din firma mail..." required />
                             </div>
                             <div>
                                 <label htmlFor="address">Adresse:</label>
-                                <input type="text" name="address" className="form-field__input" placeholder="Din firma adresse..." />
+                                <input type="text" name="address" className="form-field__input" placeholder="Din firma adresse..." required />
                             </div>
                             <div>
                                 <label htmlFor="phone">Telefon:</label>
-                                <input type="number" name="phone" className="form-field__input" placeholder="Dit firma tlf nr..." />
+                                <input type="number" name="phone" className="form-field__input" placeholder="Dit firma tlf nr..." required />
                             </div>
                             <div>
                                 <label htmlFor="budget">Beløb:</label>
-                                <input type="number" name="budget" className="form-field__input" placeholder="Dit firma beløb..." />
+                                <input type="number" name="budget" className="form-field__input" placeholder="Dit firma beløb..." required />
                             </div>
                         </div>
                         <button type="submit" className="form-field__btn">Send</button>

@@ -1,4 +1,5 @@
 @use '../placeholders/roots.scss';
+@use '../placeholders/mixins.scss';
 
 .intro {
     background-color: roots.$secondary-colour-grey;
@@ -45,6 +46,11 @@
     display: flex;
     align-items: end;
 
+    @include mixins.media(600px) {
+        padding-inline: 1rem;
+        justify-content: center;
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -58,10 +64,14 @@
 }
 
 .form {
-    background-color: roots.$secondary-colour-grey;
+    background-color: rgba(roots.$secondary-colour-grey, 0.75);
     z-index: 1;
-    padding: 1rem;
-    padding-bottom: 3rem;
+    padding-block: 2rem 4rem;
+    padding-inline: 1rem;
+
+    @include mixins.media(400px) {
+        padding-block: 1rem;
+    }
 
     &__logo {
         width: 4.6rem;
@@ -71,8 +81,14 @@
     &-field {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 1rem 1.5rem;
-        margin-top: 1rem;
+        gap: 1.5rem;
+        margin-block: 1rem 4rem;
+
+        @include mixins.media(400px) {
+            margin-block: 1rem;
+            grid-template-columns: 1fr;
+            width: 80vw;
+        }
 
         label {
             display: block;
@@ -85,6 +101,19 @@
             background: none;
             border: 2px solid roots.$primary-colour;
             padding: .3rem;
+            min-width: 100%;
+            color: roots.$typeography-tertiary;
+
+            &::placeholder {
+                color: roots.$typeography-tertiary
+            }
+        }
+
+        &__btn {
+            @include mixins.button;
+            padding: .5rem 1.3rem;
+            margin-left: 50%;
+            transform: translateX(-50%);
         }
     }
 }
