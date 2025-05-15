@@ -33,7 +33,7 @@ function Footer() {
                         </address>
                     </section>
                 </div>
-                <FaFacebookF className="footer-info__link"/>
+                <a href="https://www.facebook.com/pages/Foreningen-B%C3%B8rnelejren-p%C3%A5-Langeland/371169683001006" target="_blank" className="footer-info__link"><FaFacebookF /></a>
             </div>
         </footer>
     );

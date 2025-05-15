@@ -31,7 +31,8 @@
         &__address {
             font-style: normal;
 
-            small, a {
+            small,
+            a {
                 display: block;
                 font-size: 1em;
                 text-decoration: none;
@@ -40,9 +41,12 @@
 
         &__link {
             color: roots.$secondary-colour-white;
-            width: 2.6rem;
-            height: 2.6rem;
             align-self: flex-end;
+
+            svg {
+                width: 2.6rem;
+                height: 2.6rem;
+            }
         }
     }
 }
